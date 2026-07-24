@@ -5,16 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gift Hippo — Branded gifts, ordered from a real person.</title>
 <meta name="description" content="Gift Hippo sources and ships custom branded gifts and promotional products. Text or call for a quote today.">
+<link rel="icon" href="hippo-mascot.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
 <header class="site-header">
   <div class="wrap header-inner">
-    <a href="/" class="wordmark">🦛 Gift Hippo</a>
+    <a href="/" class="wordmark">
+      <img src="hippo-mascot.png" alt="Gift Hippo" class="wordmark-icon">
+      Gift Hippo
+    </a>
     <nav>
+      <a href="#browse">Browse</a>
       <a href="#how-it-works">How it works</a>
       <a href="#proof">Proof</a>
       <a href="#contact">Contact</a>
@@ -26,18 +35,38 @@
 <main>
 
   <section class="hero wrap">
-    <h1>Branded gifts, ordered from a real person.</h1>
-    <p class="lede">I'll get you a price today, beat any competing quote, and turn it around fast when you're in a bind. Text me directly, no ticket queue.</p>
-    <div class="cta-row">
-      <a href="tel:8086470628" class="btn btn-dark">Text or call (808) 647-0628</a>
-      <a href="#contact" class="btn btn-outline">Get a quote</a>
+    <div class="hero-copy">
+      <h1>Branded gifts, ordered from a real person.</h1>
+      <p class="lede">I'll get you a price today, beat any competing quote, and turn it around fast when you're in a bind. Text me directly, no ticket queue.</p>
+      <div class="cta-row">
+        <a href="tel:8086470628" class="btn btn-dark">Text or call (808) 647-0628</a>
+        <a href="#contact" class="btn btn-outline">Get a quote</a>
+      </div>
+    </div>
+    <div class="hero-mascot">
+      <img src="hippo-mascot-big.png" alt="Gift Hippo mascot" class="floating">
     </div>
   </section>
 
-  <section class="hero-image wrap">
-    <div class="image-frame">
-      <img src="hero-stack.jpg" alt="Gift Hippo product stack — branded coolers on a rustic wood shelf" loading="eager">
-      <div class="image-caption">Real product, real customers — not stock photography.</div>
+  <section id="browse" class="browse wrap">
+    <h2>Browse what I source</h2>
+    <p class="section-sub">A few of the categories customers order most. Send me a logo and I'll tell you what's possible.</p>
+    <div class="browse-grid">
+      <a class="browse-card" href="#contact">
+        <img src="hero-stack.jpg" alt="Fire pits and outdoor gear">
+        <span>Fire Pits & Outdoor</span>
+      </a>
+      <a class="browse-card" href="#contact">
+        <img src="product-yuk.jpg" alt="Coolers">
+        <span>Coolers</span>
+      </a>
+      <a class="browse-card" href="#contact">
+        <img src="product-buddy.jpg" alt="Drinkware and tumblers">
+        <span>Drinkware</span>
+      </a>
+      <a class="browse-card browse-card-cta" href="#contact">
+        <span class="browse-cta-text">Looking for something else?<br><strong>60+ product lines available →</strong></span>
+      </a>
     </div>
   </section>
 
@@ -60,18 +89,10 @@
     </div>
   </section>
 
-  <section class="source wrap">
-    <h2>What I source</h2>
-    <div class="source-row">
-      <img src="product-yuk.jpg" alt="Yuk cooler product photo" loading="lazy">
-      <p>Coolers, drinkware, apparel, tech, outdoor gear — all laser-engraved or embroidered with your logo. 60+ product lines on hand.</p>
-    </div>
-  </section>
-
   <section id="proof" class="proof">
     <div class="wrap proof-inner">
-      <div class="proof-number">$171,815</div>
-      <p class="proof-text">1,699 custom JBL speakers, delivered on time. The largest order in Gift Hippo's history, closed with zero marketing spend, just a referral and a straight answer.</p>
+      <div class="proof-number">1,699</div>
+      <p class="proof-text">Custom JBL speakers, shipped in 3 pallets, delivered on time — Gift Hippo's largest fulfillment to date. Closed through a single referral, handled start to finish, no marketing spend.</p>
       <a href="mailto:bradley@gift-hippo.com?subject=Tell me about the Jacobs order" class="proof-link">Read the full story →</a>
     </div>
   </section>
