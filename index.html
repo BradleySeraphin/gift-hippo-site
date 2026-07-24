@@ -93,7 +93,7 @@
     <div class="wrap proof-inner">
       <div class="proof-number">1,699</div>
       <p class="proof-text">Custom JBL speakers, shipped in 3 pallets, delivered on time — Gift Hippo's largest fulfillment to date. Closed through a single referral, handled start to finish, no marketing spend.</p>
-      <a href="mailto:bradley@gift-hippo.com?subject=Tell me about the Jacobs order" class="proof-link">Read the full story →</a>
+      <a href="jacobs-story.html" class="proof-link">Read the full story →</a>
     </div>
   </section>
 
@@ -109,12 +109,55 @@
 
   <section id="contact" class="contact wrap">
     <h2>Get a quote</h2>
-    <p>Fastest way to reach me: text or call. Email works too.</p>
-    <div class="cta-row">
+    <p>Fastest way to reach me: text or call. Or fill this out and it'll land straight in my inbox, ready to send.</p>
+    <div class="cta-row cta-row-center">
       <a href="tel:8086470628" class="btn btn-dark">Call (808) 647-0628</a>
       <a href="mailto:bradley@gift-hippo.com" class="btn btn-outline">bradley@gift-hippo.com</a>
     </div>
+
+    <form id="quote-form" class="quote-form">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="qf-name">Name</label>
+          <input type="text" id="qf-name" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="qf-email">Email</label>
+          <input type="email" id="qf-email" name="email" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="qf-item">Item & quantity</label>
+          <input type="text" id="qf-item" name="item" placeholder="e.g. BruMate Hopsulator Trio, 150 units" required>
+        </div>
+        <div class="form-field">
+          <label for="qf-deadline">Deadline</label>
+          <input type="text" id="qf-deadline" name="deadline" placeholder="e.g. Nov 15">
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="qf-message">Anything else?</label>
+        <textarea id="qf-message" name="message" rows="3" placeholder="Logo, color, shipping address, budget..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-dark">Send quote request</button>
+    </form>
   </section>
+
+  <script>
+    document.getElementById('quote-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('qf-name').value;
+      var email = document.getElementById('qf-email').value;
+      var item = document.getElementById('qf-item').value;
+      var deadline = document.getElementById('qf-deadline').value;
+      var message = document.getElementById('qf-message').value;
+      var subject = 'Quote request: ' + item;
+      var body = 'Name: ' + name + '\nEmail: ' + email + '\nItem & quantity: ' + item +
+        '\nDeadline: ' + (deadline || 'n/a') + '\n\n' + message;
+      window.location.href = 'mailto:bradley@gift-hippo.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    });
+  </script>
 
 </main>
 
