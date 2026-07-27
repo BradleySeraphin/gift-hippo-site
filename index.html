@@ -4,22 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gift Hippo — Branded gifts, ordered from a real person.</title>
-<meta name="description" content="Gift Hippo sources and ships custom branded gifts and promotional products. Text or call for a quote today.">
-<link rel="icon" href="hippo-mascot.png">
+<meta name="description" content="Gift Hippo sources and ships custom branded gifts and promotional products. Email for a quote today — personal response guaranteed.">
+<link rel="icon" type="image/png" href="hippo-head.png">
+<link rel="apple-touch-icon" href="hippo-head.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="blob blob-1"></div>
-<div class="blob blob-2"></div>
-<div class="blob blob-3"></div>
+<canvas id="particles"></canvas>
 
 <header class="site-header">
   <div class="wrap header-inner">
     <a href="/" class="wordmark">
-      <img src="hippo-mascot.png" alt="Gift Hippo" class="wordmark-icon">
+      <img src="hippo-head.png" alt="" class="wordmark-icon" aria-hidden="true">
       Gift Hippo
     </a>
     <nav>
@@ -27,7 +26,7 @@
       <a href="#how-it-works">How it works</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a href="tel:8086470628" class="btn btn-accent">Call (808) 647-0628</a>
+    <a href="#contact" class="btn btn-accent">Get a quote</a>
   </div>
 </header>
 
@@ -36,19 +35,20 @@
   <section class="hero wrap">
     <div class="hero-copy">
       <h1>Branded gifts, ordered from a real person.</h1>
-      <p class="lede">I'll get you a price today, beat any competing quote, and turn it around fast when you're in a bind. Text me directly, no ticket queue.</p>
+      <p class="lede">I'll get you a price today, beat any competing quote, and turn it around fast when you're in a bind. Email me directly — no ticket queue, no auto-reply.</p>
       <div class="cta-row">
-        <a href="tel:8086470628" class="btn btn-dark">Text or call (808) 647-0628</a>
-        <a href="#contact" class="btn btn-outline">Get a quote</a>
+        <a href="mailto:bradley@gift-hippo.com" class="btn btn-accent">Email bradley@gift-hippo.com</a>
+        <a href="#contact" class="btn btn-outline">Fill out a quote form</a>
       </div>
+      <p class="hero-phone">Or call/text: <a href="tel:8086470628">(808) 647-0628</a></p>
     </div>
     <div class="hero-mascot">
       <div class="hippo-wrapper" id="hippo-wrapper">
         <div class="hippo-bubble" id="hippo-bubble">
-          <p>Text me today — I'll find you the right gift at your budget.</p>
-          <a href="#contact" class="bubble-cta">Get a quote →</a>
+          <p>Email me today — I'll find the right gift at your budget.</p>
+          <a href="mailto:bradley@gift-hippo.com" class="bubble-cta">bradley@gift-hippo.com →</a>
         </div>
-        <img src="hippo-mascot-big.png" alt="Gift Hippo mascot" class="hippo-float">
+        <img src="hippo-mascot-big.png" alt="Gift Hippo mascot — holding a gift, giving a thumbs up" class="hippo-svg">
       </div>
     </div>
   </section>
@@ -57,33 +57,54 @@
     <h2>Browse what I source</h2>
     <p class="section-sub">Real orders, real brands. Send me a logo and I'll tell you what's possible.</p>
     <div class="browse-grid">
-      <a class="browse-card" href="#contact">
+      <a class="browse-card" href="browse.html">
         <img src="product-drinkware.jpg" alt="BruMate tumbler with Zoom branding">
         <span>Drinkware</span>
       </a>
-      <a class="browse-card" href="#contact">
+      <a class="browse-card" href="browse.html">
         <img src="product-speaker.jpg" alt="Branded JBL speaker with Microsoft logo">
         <span>Speakers</span>
       </a>
-      <a class="browse-card" href="#contact">
+      <a class="browse-card" href="browse.html">
         <img src="product-massager.jpg" alt="Brookstone massager with Amazon Logistics branding">
         <span>Tech · Audio · Wellness</span>
       </a>
-      <a class="browse-card" href="#contact">
+      <a class="browse-card" href="browse.html">
         <img src="product-bag.jpg" alt="Branded Thule backpack with Marathon Oil logo">
         <span>Looking for something else?<br><strong>60+ product lines available →</strong></span>
       </a>
     </div>
   </section>
 
+  <section class="why wrap">
+    <h2>Why Gift Hippo?</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">👤</div>
+        <div class="why-title">You're dealing with a real person</div>
+        <div class="why-text">Not a storefront, not a rep rotating through a ticket queue. I source your order, approve the proof, and ship it myself. If something needs your attention, you hear from me directly.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <div class="why-title">Industry relationships = lowest cost</div>
+        <div class="why-text">Years of direct relationships with brands and suppliers mean I can access inventory at prices most resellers can't touch. I'll beat any competing quote — that's not a slogan, it's how I win business.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚫</div>
+        <div class="why-title">No sales tax on most orders</div>
+        <div class="why-text">Because Gift Hippo operates as a small business without a physical nexus in most states, the majority of orders ship sales-tax free. That alone can save a meaningful amount on larger runs.</div>
+      </div>
+    </div>
+  </section>
+
   <section class="pillars wrap">
     <div class="pillar">
-      <div class="pillar-title">📱 Direct access</div>
-      <div class="pillar-text">My cell number, right here. Not a form, not a ticket queue.</div>
+      <div class="pillar-title">✉️ Email me directly</div>
+      <div class="pillar-text">Your message goes straight to my inbox. Not a form submission into the void — I respond personally to every quote request.</div>
     </div>
     <div class="pillar">
-      <div class="pillar-title">✉️ Personally responsive</div>
-      <div class="pillar-text">I answer my own emails, every time. You're talking to the person doing the work.</div>
+      <div class="pillar-title">📱 Reachable by phone too</div>
+      <div class="pillar-text">For urgent timelines, text or call (808) 647-0628. You're talking to the person doing the work.</div>
     </div>
     <div class="pillar">
       <div class="pillar-title">⚡ Rush capable</div>
@@ -98,24 +119,73 @@
       <div class="pillar-text">I manage sourcing, decoration, proof approvals, and shipping. You talk to one person — me — and the product shows up right.</div>
     </div>
     <div class="pillar">
-      <div class="pillar-title">🛡️ If something's wrong, I fix it</div>
-      <div class="pillar-text">Quality issue or a shipment problem? I handle it directly. No runaround, no "submit a claim" — just a solution.</div>
+      <div class="pillar-title">🛡️ Manufacturer warranty on every order</div>
+      <div class="pillar-text">All products ship under their manufacturer's warranty. If something arrives defective, I'll work directly with the supplier to get it replaced — no runaround on your end.</div>
+    </div>
+  </section>
+
+  <section class="reviews wrap">
+    <div class="reviews-header">
+      <h2>What customers say</h2>
+      <div class="reviews-badge">
+        <span class="reviews-stars">★★★★★</span>
+        <span class="reviews-score">5.0</span>
+        <a href="https://share.google/pCk6TLFYUDuigLmpX" target="_blank" rel="noopener" class="reviews-source">on Google</a>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Working with Gift Hippo exceeded my expectations. Communication was frequent and fast, they worked with me on my artwork, completed the job ahead of schedule, and delivered a high quality customized product. I would recommend Gift Hippo to anyone who needed customized products for corporate gifts or merchandise."</p>
+        <div class="review-meta">
+          <span class="review-name">Amanda R.</span>
+          <span class="review-detail">65 laser-etched BruMate products</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Very professional, great quality, clean packaging and most importantly 'on time'! I didn't have any difficulty with this company. Will definitely come to them again."</p>
+        <div class="review-meta">
+          <span class="review-name">Annie A.</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I needed a lot of cups made on an extremely short notice and they helped me out and got it done. The cups were perfect and a huge hit."</p>
+        <div class="review-meta">
+          <span class="review-name">Samantha R.</span>
+          <span class="review-detail">Rush order, short notice</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="how-it-works" class="how wrap">
     <h2>How it works</h2>
     <div class="how-grid">
-      <div class="how-step"><span class="step-num">1</span>Tell me the item and quantity</div>
-      <div class="how-step"><span class="step-num">2</span>Pick a color</div>
-      <div class="how-step"><span class="step-num">3</span>Send your logo or design</div>
-      <div class="how-step"><span class="step-num">4</span>Give me your deadline</div>
+      <div class="how-step">
+        <span class="step-num">1</span>
+        Tell me the item and quantity
+      </div>
+      <div class="how-step">
+        <span class="step-num">2</span>
+        Pick a color
+      </div>
+      <div class="how-step">
+        <span class="step-num">3</span>
+        Send your logo or design
+        <span class="step-note">Must be true vector format (AI, EPS, or SVG). If you only have a raster file (JPG/PNG), I can arrange a vector conversion for a $30 service fee.</span>
+      </div>
+      <div class="how-step">
+        <span class="step-num">4</span>
+        Give me your deadline
+      </div>
     </div>
   </section>
 
   <section id="contact" class="contact wrap">
     <h2>Get a quote</h2>
-    <p>Fastest way to reach me: <a href="tel:8086470628" class="inline-link">text or call (808) 647-0628</a>. Or fill this out and it'll land straight in my inbox.</p>
+    <p>Fill out the form below and it'll land straight in my inbox — I respond personally to every request. Prefer to write directly? <a href="mailto:bradley@gift-hippo.com" class="inline-link">bradley@gift-hippo.com</a>. For urgent timelines, text me at <a href="tel:8086470628" class="inline-link">(808) 647-0628</a>.</p>
 
     <form id="quote-form" class="quote-form">
       <div class="form-row">
@@ -130,7 +200,7 @@
       </div>
       <div class="form-row">
         <div class="form-field">
-          <label for="qf-item">Item & quantity</label>
+          <label for="qf-item">Item &amp; quantity</label>
           <input type="text" id="qf-item" name="item" placeholder="e.g. BruMate Hopsulator Trio, 150 units" required>
         </div>
         <div class="form-field">
@@ -142,50 +212,132 @@
         <label for="qf-message">Anything else?</label>
         <textarea id="qf-message" name="message" rows="3" placeholder="Logo, color, shipping address, budget..."></textarea>
       </div>
-      <button type="submit" class="btn btn-dark">Send quote request</button>
+      <button type="submit" class="btn btn-accent">Send quote request</button>
     </form>
   </section>
-
-  <script>
-    // Hippo click — toggle speech bubble
-    var hippoWrapper = document.getElementById('hippo-wrapper');
-    var hippoBubble  = document.getElementById('hippo-bubble');
-    hippoWrapper.addEventListener('click', function (e) {
-      // If the click was on the CTA link inside the bubble, let it through
-      if (e.target.closest('a')) return;
-      hippoBubble.classList.toggle('open');
-    });
-    // Close bubble when clicking anywhere else
-    document.addEventListener('click', function (e) {
-      if (!hippoWrapper.contains(e.target)) {
-        hippoBubble.classList.remove('open');
-      }
-    });
-  </script>
-
-  <script>
-    document.getElementById('quote-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var name = document.getElementById('qf-name').value;
-      var email = document.getElementById('qf-email').value;
-      var item = document.getElementById('qf-item').value;
-      var deadline = document.getElementById('qf-deadline').value;
-      var message = document.getElementById('qf-message').value;
-      var subject = 'Quote request: ' + item;
-      var body = 'Name: ' + name + '\nEmail: ' + email + '\nItem & quantity: ' + item +
-        '\nDeadline: ' + (deadline || 'n/a') + '\n\n' + message;
-      window.location.href = 'mailto:bradley@gift-hippo.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    });
-  </script>
 
 </main>
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <span>Gift Hippo · San Diego, CA</span>
-    <span>bradley@gift-hippo.com · (808) 647-0628</span>
+    <span><a href="mailto:bradley@gift-hippo.com">bradley@gift-hippo.com</a> · <a href="tel:8086470628">(808) 647-0628</a></span>
   </div>
 </footer>
+
+<!-- Themed floating icon field -->
+<script>
+(function () {
+  var canvas = document.getElementById('particles');
+  var ctx    = canvas.getContext('2d');
+
+  var ICONS = [
+    '🎁', '🎁',   // gift box
+    '⛳', '⛳',   // golf
+    '🏆',         // trophy
+    '🏅',         // medal
+    '☕', '☕',   // mug
+    '🍺', '🍺',   // pint
+    '🥤', '🥤',   // tumbler / coozie
+    '🧋',         // cup
+    '🍵',         // teacup
+    '🫗',         // pour / cup
+  ];
+
+  var pts = [];
+  var N   = 26;
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  function init() {
+    resize();
+    pts = [];
+    for (var i = 0; i < N; i++) {
+      pts.push({
+        x:    Math.random() * canvas.width,
+        y:    Math.random() * canvas.height,
+        vx:   (Math.random() - 0.5) * 0.20,
+        vy:   (Math.random() - 0.5) * 0.20,
+        icon: ICONS[Math.floor(Math.random() * ICONS.length)],
+        size: Math.random() * 10 + 14,      // 14–24px
+        a:    Math.random() * 0.20 + 0.08,  // 0.08–0.28 opacity — subtle
+        rot:  Math.random() * Math.PI * 2,
+        vrot: (Math.random() - 0.5) * 0.006
+      });
+    }
+  }
+
+  function tick() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (var k = 0; k < pts.length; k++) {
+      var p = pts[k];
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.globalAlpha  = p.a;
+      ctx.font         = p.size + 'px serif';
+      ctx.textAlign    = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(p.icon, 0, 0);
+      ctx.restore();
+
+      p.x   += p.vx;
+      p.y   += p.vy;
+      p.rot += p.vrot;
+
+      // Wrap around viewport edges instead of bouncing
+      var pad = 32;
+      if (p.x < -pad) p.x = canvas.width + pad;
+      else if (p.x > canvas.width + pad)  p.x = -pad;
+      if (p.y < -pad) p.y = canvas.height + pad;
+      else if (p.y > canvas.height + pad) p.y = -pad;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  init();
+  tick();
+  window.addEventListener('resize', init);
+}());
+</script>
+
+<!-- Hippo speech bubble toggle -->
+<script>
+(function () {
+  var wrapper = document.getElementById('hippo-wrapper');
+  var bubble  = document.getElementById('hippo-bubble');
+  wrapper.addEventListener('click', function (e) {
+    if (e.target.closest('a')) return;
+    bubble.classList.toggle('open');
+  });
+  document.addEventListener('click', function (e) {
+    if (!wrapper.contains(e.target)) bubble.classList.remove('open');
+  });
+}());
+</script>
+
+<!-- Quote form → mailto -->
+<script>
+document.getElementById('quote-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var name     = document.getElementById('qf-name').value;
+  var email    = document.getElementById('qf-email').value;
+  var item     = document.getElementById('qf-item').value;
+  var deadline = document.getElementById('qf-deadline').value;
+  var message  = document.getElementById('qf-message').value;
+  var subject  = 'Quote request: ' + item;
+  var body     = 'Name: ' + name +
+                 '\nEmail: ' + email +
+                 '\nItem & quantity: ' + item +
+                 '\nDeadline: ' + (deadline || 'n/a') +
+                 '\n\n' + message;
+  window.location.href = 'mailto:bradley@gift-hippo.com?subject=' +
+    encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+});
+</script>
 
 </body>
 </html>

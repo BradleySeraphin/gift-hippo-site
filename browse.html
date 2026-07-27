@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse Products — Gift Hippo</title>
+<meta name="description" content="Browse thousands of premium branded products through Hirsch Promo, then get a quote from Gift Hippo.">
+<link rel="icon" type="image/png" href="hippo-head.png">
+<link rel="apple-touch-icon" href="hippo-head.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .interstitial {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .interstitial-card {
+    max-width: 680px;
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 48px 48px 40px;
+    text-align: center;
+  }
+  .interstitial-hippo {
+    width: 130px;
+    margin: 0 auto 24px;
+    display: block;
+    filter: drop-shadow(0 12px 24px rgba(0,0,0,0.4));
+  }
+  .interstitial-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin: 0 0 10px;
+  }
+  .interstitial-card h1 {
+    font-size: clamp(22px, 4vw, 30px);
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: var(--cream);
+  }
+  .interstitial-card h1 span {
+    color: var(--coral);
+  }
+  .interstitial-body {
+    font-size: 15px;
+    color: var(--cream-mid);
+    line-height: 1.75;
+    margin: 0 0 16px;
+    text-align: left;
+  }
+  .interstitial-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 28px 0;
+  }
+  .interstitial-cta-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 16px;
+  }
+  .interstitial-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .interstitial-actions .btn {
+    min-width: 200px;
+    text-align: center;
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 28px;
+    font-size: 13px;
+    color: var(--cream-dim);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .back-link:hover { color: var(--cream-mid); }
+  @media (max-width: 600px) {
+    .interstitial-card { padding: 32px 24px; }
+    .interstitial-actions .btn { min-width: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="/" class="wordmark">
+      <img src="hippo-head.png" alt="" class="wordmark-icon" aria-hidden="true">
+      Gift Hippo
+    </a>
+    <nav>
+      <a href="/#browse">Browse</a>
+      <a href="/#how-it-works">How it works</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <a href="/#contact" class="btn btn-accent">Get a quote</a>
+  </div>
+</header>
+
+<div class="interstitial">
+  <div class="interstitial-card">
+
+    <img src="hippo-head.png" alt="Gift Hippo" class="interstitial-hippo">
+
+    <h1>Browse Hirsch.<br>Buy through <span>me.</span></h1>
+
+    <p class="interstitial-body">Hirsch Promo is my primary supplier — 70+ premium brands, thousands of products. Browse their catalog to find what you want. They're wholesale-only, so you can't buy directly through them. When you're ready, I'll get it for you — often at a better price than what they list.</p>
+
+    <div class="interstitial-actions">
+      <a href="https://hirschpromo.com/" target="_blank" rel="noopener" class="btn btn-outline">Browse Hirsch →</a>
+      <a href="/#contact" class="btn btn-accent">Get a quote</a>
+    </div>
+
+    <a href="/" class="back-link">← Back to Gift Hippo</a>
+
+  </div>
+</div>
+
+<!-- Particle field -->
+<script>
+(function () {
+  var canvas = document.getElementById('particles');
+  var ctx    = canvas.getContext('2d');
+  var ICONS  = ['🎁','🎁','⛳','⛳','🏆','🏅','☕','☕','🍺','🍺','🥤','🥤','🧋','🍵','🫗'];
+  var pts    = [];
+  var N      = 26;
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  function init() {
+    resize(); pts = [];
+    for (var i = 0; i < N; i++) {
+      pts.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+        vx: (Math.random()-.5)*.20, vy: (Math.random()-.5)*.20,
+        icon: ICONS[Math.floor(Math.random()*ICONS.length)],
+        size: Math.random()*10+14, a: Math.random()*.20+.08,
+        rot: Math.random()*Math.PI*2, vrot: (Math.random()-.5)*.006 });
+    }
+  }
+  function tick() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for (var k=0; k<pts.length; k++) {
+      var p=pts[k];
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+      ctx.globalAlpha=p.a; ctx.font=p.size+'px serif';
+      ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillText(p.icon,0,0); ctx.restore();
+      p.x+=p.vx; p.y+=p.vy; p.rot+=p.vrot;
+      var pad=32;
+      if(p.x<-pad) p.x=canvas.width+pad; else if(p.x>canvas.width+pad) p.x=-pad;
+      if(p.y<-pad) p.y=canvas.height+pad; else if(p.y>canvas.height+pad) p.y=-pad;
+    }
+    requestAnimationFrame(tick);
+  }
+  init(); tick();
+  window.addEventListener('resize',init);
+}());
+</script>
+
+</body>
+</html>
