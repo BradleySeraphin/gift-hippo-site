@@ -355,6 +355,7 @@ img { display: block; max-width: 100%; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--card-gap);
+  align-items: start;
 }
 .review-card {
   background: var(--surface);
@@ -370,7 +371,6 @@ img { display: block; max-width: 100%; }
   font-size: 14px;
   color: var(--cream-mid);
   line-height: 1.75;
-  flex: 1;
   font-style: italic;
 }
 .review-meta {
@@ -390,6 +390,7 @@ img { display: block; max-width: 100%; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--card-gap);
+  align-items: start;
   position: relative;
   counter-reset: none;
 }
