@@ -44,7 +44,11 @@
       </div>
     </div>
     <div class="hero-mascot">
-      <div class="hippo-wrapper">
+      <div class="hippo-wrapper" id="hippo-wrapper">
+        <div class="hippo-bubble" id="hippo-bubble">
+          <p>Text me today — I'll beat your best quote.</p>
+          <a href="tel:8086470628" class="btn btn-dark">Call (808) 647-0628</a>
+        </div>
         <img src="hippo-mascot-big.png" alt="Gift Hippo mascot" class="hippo-float">
       </div>
     </div>
@@ -145,6 +149,23 @@
       <button type="submit" class="btn btn-dark">Send quote request</button>
     </form>
   </section>
+
+  <script>
+    // Hippo click — toggle speech bubble
+    var hippoWrapper = document.getElementById('hippo-wrapper');
+    var hippoBubble  = document.getElementById('hippo-bubble');
+    hippoWrapper.addEventListener('click', function (e) {
+      // If the click was on the CTA link inside the bubble, let it through
+      if (e.target.closest('a')) return;
+      hippoBubble.classList.toggle('open');
+    });
+    // Close bubble when clicking anywhere else
+    document.addEventListener('click', function (e) {
+      if (!hippoWrapper.contains(e.target)) {
+        hippoBubble.classList.remove('open');
+      }
+    });
+  </script>
 
   <script>
     document.getElementById('quote-form').addEventListener('submit', function (e) {

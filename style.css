@@ -175,7 +175,7 @@ a { text-decoration: none; color: inherit; }
   flex-wrap: wrap;
 }
 .hero-mascot {
-  flex: 0 1 280px;
+  flex: 0 1 400px;
   display: flex;
   justify-content: center;
 }
@@ -184,6 +184,8 @@ a { text-decoration: none; color: inherit; }
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  cursor: pointer;
   transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .hippo-wrapper:hover {
@@ -191,7 +193,7 @@ a { text-decoration: none; color: inherit; }
 }
 .hippo-float {
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   display: block;
   animation:
     hippo-enter 0.75s cubic-bezier(0.22, 1, 0.36, 1) both,
@@ -457,8 +459,65 @@ a { text-decoration: none; color: inherit; }
   color: var(--ink-soft);
 }
 
+/* Hippo speech bubble */
+.hippo-bubble {
+  position: absolute;
+  bottom: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.88) translateY(8px);
+  width: 220px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  padding: 14px 18px 16px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10;
+}
+.hippo-bubble.open {
+  opacity: 1;
+  transform: translateX(-50%) scale(1) translateY(0);
+  pointer-events: all;
+}
+/* Arrow pointing down toward hippo */
+.hippo-bubble::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 9px solid transparent;
+  border-top-color: var(--navy);
+  border-bottom: none;
+}
+.hippo-bubble p {
+  margin: 0 0 12px;
+  font-weight: 600;
+  color: #C9E7F7;
+}
+.hippo-bubble .btn {
+  display: block;
+  padding: 10px 16px;
+  font-size: 13px;
+}
+
 @media (max-width: 600px) {
   .hero { padding-top: 28px; flex-direction: column; }
-  .hero-mascot { order: -1; max-width: 200px; }
+  .hero-mascot { order: -1; max-width: 260px; }
   .proof-inner { text-align: left; }
+  /* On mobile hippo is at top, bubble opens below instead */
+  .hippo-bubble {
+    bottom: auto;
+    top: calc(100% + 16px);
+  }
+  .hippo-bubble::after {
+    top: auto;
+    bottom: 100%;
+    border-top-color: transparent;
+    border-bottom: 9px solid var(--navy);
+  }
 }
