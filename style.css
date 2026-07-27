@@ -281,19 +281,12 @@ a { text-decoration: none; color: inherit; }
   font-size: 15px;
   padding: 30px 14px 12px;
 }
-.browse-card-cta {
-  background: linear-gradient(135deg, var(--sky-deep), var(--sky));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-.browse-cta-text {
-  color: var(--white);
-  font-weight: 700;
+/* CTA card span: slightly larger padding for two-line text */
+.browse-card span br + strong {
+  display: block;
+  margin-top: 4px;
   font-size: 14px;
-  text-align: center;
-  line-height: 1.5;
+  opacity: 0.9;
 }
 
 /* Pillars */
