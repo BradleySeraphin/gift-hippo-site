@@ -13,7 +13,8 @@
 </head>
 <body>
 
-<canvas id="particles"></canvas>
+<!-- Inline style guarantees canvas stays behind content regardless of CSS load order or caching -->
+<canvas id="particles" style="position:fixed;inset:0;z-index:-1;pointer-events:none;background:transparent;"></canvas>
 
 <header class="site-header">
   <div class="wrap header-inner">
@@ -86,7 +87,7 @@
     </div>
   </section>
 
-  <!-- Why Gift Hippo -->
+  <!-- Why Gift Hippo — merged with operational pillars -->
   <section class="section alt-bg">
     <div class="wrap">
       <div class="section-head">
@@ -102,12 +103,27 @@
         <div class="why-card">
           <div class="why-icon">🤝</div>
           <div class="why-title">Industry relationships = lowest cost</div>
-          <div class="why-text">Years of direct relationships with brands and suppliers mean I can access inventory at prices most resellers can't touch. I'll beat any competing quote — that's not a slogan, it's how I win business.</div>
+          <div class="why-text">Years of direct relationships with brands and suppliers mean I can access inventory at prices most resellers can't touch. I'll beat any competing quote.</div>
         </div>
         <div class="why-card">
           <div class="why-icon">🚫</div>
           <div class="why-title">No sales tax on most orders</div>
           <div class="why-text">Because Gift Hippo operates as a small business without a physical nexus in most states, the majority of orders ship sales-tax free. That alone can save a meaningful amount on larger runs.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">⚡</div>
+          <div class="why-title">Rush capable</div>
+          <div class="why-text">Need it fast? Say so. I've made tight deadlines work more times than I can count — and I'll tell you upfront if something can't make your window.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">📦</div>
+          <div class="why-title">Handled start to finish</div>
+          <div class="why-text">I manage sourcing, decoration, proof approvals, and shipping. You talk to one person — me — and the product shows up right.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🛡️</div>
+          <div class="why-title">Manufacturer warranty on every order</div>
+          <div class="why-text">All products ship under their manufacturer's warranty. If something arrives defective, I'll work directly with the supplier to get it replaced — no runaround on your end.</div>
         </div>
       </div>
     </div>
@@ -181,48 +197,12 @@
     </div>
   </section>
 
-  <!-- How I work (Pillars) -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>How I work</h2>
-        <p class="sub">The operational details behind every order.</p>
-      </div>
-      <div class="pillars-grid">
-        <div class="pillar">
-          <div class="pillar-title">✉️ Email me directly</div>
-          <div class="pillar-text">Your message goes straight to my inbox. Not a form submission into the void — I respond personally to every quote request.</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-title">📱 Reachable by phone too</div>
-          <div class="pillar-text">For urgent timelines, text or call (808) 647-0628. You're talking to the person doing the work.</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-title">⚡ Rush capable</div>
-          <div class="pillar-text">Need it fast? Say so. I've made tight deadlines work more times than I can count.</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-title">🎯 The right gift exists at your budget</div>
-          <div class="pillar-text">I know great options across every price point. Tell me what you're working with per item and I'll point you to something people actually remember.</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-title">📦 Handled start to finish</div>
-          <div class="pillar-text">I manage sourcing, decoration, proof approvals, and shipping. You talk to one person — me — and the product shows up right.</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-title">🛡️ Manufacturer warranty on every order</div>
-          <div class="pillar-text">All products ship under their manufacturer's warranty. If something arrives defective, I'll work directly with the supplier to get it replaced — no runaround on your end.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Contact -->
-  <section id="contact" class="section contact-section alt-bg">
+  <section id="contact" class="section contact-section">
     <div class="wrap">
       <div class="section-head centered">
         <h2>Get a quote</h2>
-        <p class="sub">Fill out the form and it'll land straight in my inbox. I respond personally to every request. Prefer to write directly? <a href="mailto:bradley@gift-hippo.com" class="inline-link">bradley@gift-hippo.com</a>. Urgent? Text <a href="tel:8086470628" class="inline-link">(808) 647-0628</a>.</p>
+        <p class="sub">I respond personally to every request — usually within a few hours. Prefer to write directly? <a href="mailto:bradley@gift-hippo.com" class="inline-link">bradley@gift-hippo.com</a>. Urgent? Text <a href="tel:8086470628" class="inline-link">(808) 647-0628</a>.</p>
       </div>
       <form id="quote-form" class="quote-form">
         <div class="form-row">
@@ -249,6 +229,10 @@
           <label for="qf-message">Anything else?</label>
           <textarea id="qf-message" name="message" rows="3" placeholder="Logo, color, shipping address, budget..."></textarea>
         </div>
+        <!-- Web3Forms access key — get yours free at web3forms.com (just verify your email) -->
+        <input type="hidden" name="access_key" value="PASTE_YOUR_WEB3FORMS_KEY_HERE">
+        <input type="hidden" name="subject" value="New quote request — Gift Hippo">
+        <input type="hidden" name="from_name" value="Gift Hippo Website">
         <button type="submit" class="btn btn-accent">Send quote request</button>
       </form>
     </div>
@@ -317,23 +301,67 @@
 }());
 </script>
 
-<!-- Quote form → mailto -->
+<!-- Quote form — Web3Forms (real email delivery, no backend needed) -->
 <script>
 document.getElementById('quote-form').addEventListener('submit', function (e) {
   e.preventDefault();
-  var name     = document.getElementById('qf-name').value;
-  var email    = document.getElementById('qf-email').value;
-  var item     = document.getElementById('qf-item').value;
-  var deadline = document.getElementById('qf-deadline').value;
-  var message  = document.getElementById('qf-message').value;
-  var subject  = 'Quote request: ' + item;
-  var body     = 'Name: ' + name +
-                 '\nEmail: ' + email +
-                 '\nItem & quantity: ' + item +
-                 '\nDeadline: ' + (deadline || 'n/a') +
-                 '\n\n' + message;
-  window.location.href = 'mailto:bradley@gift-hippo.com?subject=' +
-    encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  var form = this;
+  var btn  = form.querySelector('button[type=submit]');
+  var key  = form.querySelector('[name=access_key]').value;
+
+  // If key hasn't been set yet, fall back to mailto so form still works during setup
+  if (!key || key === 'PASTE_YOUR_WEB3FORMS_KEY_HERE') {
+    var name     = document.getElementById('qf-name').value;
+    var email    = document.getElementById('qf-email').value;
+    var item     = document.getElementById('qf-item').value;
+    var deadline = document.getElementById('qf-deadline').value;
+    var message  = document.getElementById('qf-message').value;
+    var body = 'Name: ' + name + '\nEmail: ' + email +
+               '\nItem & quantity: ' + item +
+               '\nDeadline: ' + (deadline || 'n/a') +
+               '\n\n' + message;
+    window.location.href = 'mailto:bradley@gift-hippo.com?subject=' +
+      encodeURIComponent('Quote request: ' + item) + '&body=' + encodeURIComponent(body);
+    return;
+  }
+
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  var data = {
+    access_key:  key,
+    name:        document.getElementById('qf-name').value,
+    email:       document.getElementById('qf-email').value,
+    subject:     'Quote request: ' + document.getElementById('qf-item').value,
+    message:     'Item & quantity: ' + document.getElementById('qf-item').value +
+                 '\nDeadline: ' + (document.getElementById('qf-deadline').value || 'n/a') +
+                 '\n\n' + document.getElementById('qf-message').value,
+    from_name:   'Gift Hippo Website'
+  };
+
+  fetch('https://api.web3forms.com/submit', {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body:    JSON.stringify(data)
+  })
+  .then(function (r) { return r.json(); })
+  .then(function (json) {
+    if (json.success) {
+      form.innerHTML =
+        '<div class="form-success">' +
+          '<div class="success-icon">🎁</div>' +
+          '<h3>Got it — I\'ll be in touch soon.</h3>' +
+          '<p>Usually within a few hours. For urgent timelines, text me at <a href="tel:8086470628" class="inline-link">(808) 647-0628</a>.</p>' +
+        '</div>';
+    } else {
+      throw new Error('Submission failed');
+    }
+  })
+  .catch(function () {
+    btn.textContent = 'Send quote request';
+    btn.disabled = false;
+    alert('Something went wrong — email me directly at bradley@gift-hippo.com');
+  });
 });
 </script>
 
