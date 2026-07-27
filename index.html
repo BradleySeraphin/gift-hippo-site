@@ -229,10 +229,6 @@
           <label for="qf-message">Anything else?</label>
           <textarea id="qf-message" name="message" rows="3" placeholder="Logo, color, shipping address, budget..."></textarea>
         </div>
-        <!-- Web3Forms access key — get yours free at web3forms.com (just verify your email) -->
-        <input type="hidden" name="access_key" value="PASTE_YOUR_WEB3FORMS_KEY_HERE">
-        <input type="hidden" name="subject" value="New quote request — Gift Hippo">
-        <input type="hidden" name="from_name" value="Gift Hippo Website">
         <button type="submit" class="btn btn-accent">Send quote request</button>
       </form>
     </div>
@@ -301,66 +297,64 @@
 }());
 </script>
 
-<!-- Quote form — Web3Forms (real email delivery, no backend needed) -->
+<!-- Quote form → mailto with visible confirmation panel -->
 <script>
 document.getElementById('quote-form').addEventListener('submit', function (e) {
   e.preventDefault();
-  var form = this;
-  var btn  = form.querySelector('button[type=submit]');
-  var key  = form.querySelector('[name=access_key]').value;
+  var name     = document.getElementById('qf-name').value;
+  var email    = document.getElementById('qf-email').value;
+  var item     = document.getElementById('qf-item').value;
+  var deadline = document.getElementById('qf-deadline').value;
+  var message  = document.getElementById('qf-message').value;
 
-  // If key hasn't been set yet, fall back to mailto so form still works during setup
-  if (!key || key === 'PASTE_YOUR_WEB3FORMS_KEY_HERE') {
-    var name     = document.getElementById('qf-name').value;
-    var email    = document.getElementById('qf-email').value;
-    var item     = document.getElementById('qf-item').value;
-    var deadline = document.getElementById('qf-deadline').value;
-    var message  = document.getElementById('qf-message').value;
-    var body = 'Name: ' + name + '\nEmail: ' + email +
-               '\nItem & quantity: ' + item +
-               '\nDeadline: ' + (deadline || 'n/a') +
-               '\n\n' + message;
-    window.location.href = 'mailto:bradley@gift-hippo.com?subject=' +
-      encodeURIComponent('Quote request: ' + item) + '&body=' + encodeURIComponent(body);
-    return;
-  }
+  var subject = 'Quote request: ' + item;
+  var body    = 'Name: ' + name +
+                '\nEmail: ' + email +
+                '\nItem & quantity: ' + item +
+                '\nDeadline: ' + (deadline || 'n/a') +
+                (message ? '\n\nNotes: ' + message : '');
 
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
+  // Fire the mailto link
+  window.location.href = 'mailto:bradley@gift-hippo.com?subject=' +
+    encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 
-  var data = {
-    access_key:  key,
-    name:        document.getElementById('qf-name').value,
-    email:       document.getElementById('qf-email').value,
-    subject:     'Quote request: ' + document.getElementById('qf-item').value,
-    message:     'Item & quantity: ' + document.getElementById('qf-item').value +
-                 '\nDeadline: ' + (document.getElementById('qf-deadline').value || 'n/a') +
-                 '\n\n' + document.getElementById('qf-message').value,
-    from_name:   'Gift Hippo Website'
-  };
+  // Clipboard-ready copy of the full request
+  var clipText = 'To: bradley@gift-hippo.com\n' +
+                 'Subject: ' + subject + '\n\n' + body;
 
-  fetch('https://api.web3forms.com/submit', {
-    method:  'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body:    JSON.stringify(data)
-  })
-  .then(function (r) { return r.json(); })
-  .then(function (json) {
-    if (json.success) {
-      form.innerHTML =
-        '<div class="form-success">' +
-          '<div class="success-icon">🎁</div>' +
-          '<h3>Got it — I\'ll be in touch soon.</h3>' +
-          '<p>Usually within a few hours. For urgent timelines, text me at <a href="tel:8086470628" class="inline-link">(808) 647-0628</a>.</p>' +
-        '</div>';
-    } else {
-      throw new Error('Submission failed');
-    }
-  })
-  .catch(function () {
-    btn.textContent = 'Send quote request';
-    btn.disabled = false;
-    alert('Something went wrong — email me directly at bradley@gift-hippo.com');
+  // Replace the form with the confirmation panel immediately
+  document.getElementById('quote-form').outerHTML =
+    '<div class="quote-confirm" id="quote-confirm">' +
+      '<div class="quote-confirm-icon">✉️</div>' +
+      '<h3>Opening your email app now…</h3>' +
+      '<p>Your quote request is pre-filled and ready to send. If your email app didn\'t open, copy your message below and paste it into an email to Bradley.</p>' +
+      '<button class="copy-btn" id="copy-btn">📋&nbsp; Copy my request</button>' +
+      '<div class="quote-confirm-contact">' +
+        '<strong>Or reach Bradley directly:</strong>' +
+        '<a href="mailto:bradley@gift-hippo.com">bradley@gift-hippo.com</a>' +
+        '<span class="contact-sep">·</span>' +
+        '<a href="tel:8086470628">(808) 647-0628</a>' +
+      '</div>' +
+    '</div>';
+
+  document.getElementById('copy-btn').addEventListener('click', function () {
+    var btn = this;
+    navigator.clipboard.writeText(clipText).then(function () {
+      btn.textContent = '✓  Copied to clipboard';
+      btn.classList.add('copied');
+    }).catch(function () {
+      // Fallback for browsers without clipboard API
+      var ta = document.createElement('textarea');
+      ta.value = clipText;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      btn.textContent = '✓  Copied to clipboard';
+      btn.classList.add('copied');
+    });
   });
 });
 </script>
