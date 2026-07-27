@@ -292,10 +292,10 @@ a { text-decoration: none; color: inherit; }
 /* Pillars */
 .pillars {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 14px;
-  padding-top: 20px;
-  padding-bottom: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  padding-top: 24px;
+  padding-bottom: 40px;
 }
 .pillar {
   background: var(--white);
@@ -313,40 +313,6 @@ a { text-decoration: none; color: inherit; }
 .pillar-text {
   font-size: 13px;
   color: var(--ink-soft);
-}
-
-/* Proof */
-.proof {
-  background: var(--navy);
-  padding: 36px 0;
-  margin: 0 0 36px;
-  position: relative;
-  z-index: 1;
-}
-.proof-inner {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-.proof-number {
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 700;
-  font-size: 40px;
-  color: var(--sky);
-}
-.proof-text {
-  flex: 1;
-  min-width: 260px;
-  color: #C9E7F7;
-  font-size: 14px;
-  margin: 0;
-}
-.proof-link {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--gold);
-  white-space: nowrap;
 }
 
 /* How it works */
@@ -488,14 +454,23 @@ a { text-decoration: none; color: inherit; }
   border-bottom: none;
 }
 .hippo-bubble p {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   font-weight: 600;
   color: #C9E7F7;
 }
-.hippo-bubble .btn {
-  display: block;
-  padding: 10px 16px;
+.bubble-cta {
+  display: inline-block;
   font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.bubble-cta:hover { opacity: 0.8; }
+
+.inline-link {
+  color: var(--sky-deep);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 @media (max-width: 600px) {
