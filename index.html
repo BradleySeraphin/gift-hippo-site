@@ -314,9 +314,15 @@ document.getElementById('quote-form').addEventListener('submit', function (e) {
                 '\nDeadline: ' + (deadline || 'n/a') +
                 (message ? '\n\nNotes: ' + message : '');
 
-  // Fire the mailto link
-  window.location.href = 'mailto:bradley@gift-hippo.com?subject=' +
+  var mailtoHref = 'mailto:bradley@gift-hippo.com?subject=' +
     encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+  // Programmatic click on a real <a> element — more reliable than window.location.href
+  var a = document.createElement('a');
+  a.href = mailtoHref;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 
   // Clipboard-ready copy of the full request
   var clipText = 'To: bradley@gift-hippo.com\n' +
@@ -326,8 +332,10 @@ document.getElementById('quote-form').addEventListener('submit', function (e) {
   document.getElementById('quote-form').outerHTML =
     '<div class="quote-confirm" id="quote-confirm">' +
       '<div class="quote-confirm-icon">✉️</div>' +
-      '<h3>Opening your email app now…</h3>' +
-      '<p>Your quote request is pre-filled and ready to send. If your email app didn\'t open, copy your message below and paste it into an email to Bradley.</p>' +
+      '<h3>Request sent!</h3>' +
+      '<p>If your email app opened, just hit send. If it didn\'t, use the options below.</p>' +
+      '<a href="' + mailtoHref.replace(/"/g, '&quot;') + '" class="btn btn-outline" style="display:inline-flex;margin-bottom:12px;">Open email app →</a>' +
+      '<br>' +
       '<button class="copy-btn" id="copy-btn">📋&nbsp; Copy my request</button>' +
       '<div class="quote-confirm-contact">' +
         '<strong>Or reach Bradley directly:</strong>' +
