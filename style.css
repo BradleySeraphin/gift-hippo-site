@@ -385,6 +385,44 @@ img { display: block; max-width: 100%; }
 }
 .review-detail { font-size: 12px; color: var(--cream-dim); margin-top: 3px; }
 
+/* ── How it works — light section ───────────────── */
+.hiw-section {
+  background: #F0F5FA;
+}
+.hiw-section .section-head h2 { color: #16111F; }
+.hiw-section .sub { color: #4A3F60; }
+
+.hiw-section .how-grid {
+  gap: 20px;
+  align-items: stretch;
+}
+.hiw-section .how-grid::before { display: none; }
+
+.hiw-section .how-step {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: 28px 20px 24px;
+  box-shadow: 0 2px 16px rgba(22, 17, 31, 0.07);
+  overflow: hidden;
+}
+
+.step-watermark {
+  position: absolute;
+  bottom: -14px;
+  right: -14px;
+  width: 110px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hiw-section .how-step:nth-child(1) .step-watermark { opacity: 0.08; }
+.hiw-section .how-step:nth-child(2) .step-watermark { opacity: 0.28; }
+.hiw-section .how-step:nth-child(3) .step-watermark { opacity: 0.58; }
+.hiw-section .how-step:nth-child(4) .step-watermark { opacity: 1.00; }
+
+.hiw-section .step-title { color: #16111F; }
+.hiw-section .step-note  { color: #6A5880; }
+
 /* ── How it works ────────────────────────────────── */
 .how-grid {
   display: grid;
