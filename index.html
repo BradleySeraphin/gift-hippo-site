@@ -38,7 +38,7 @@
     <div class="wrap">
       <div class="hero">
         <div class="hero-copy">
-          <h1>Branded gifts, ordered from a real person.</h1>
+          <h1><span class="w">Branded</span> <span class="w">gifts,</span> <span class="w">ordered</span> <span class="w">from</span> <span class="w">a</span> <span class="w">real</span> <span class="w">person.</span></h1>
           <p class="lede">I'll get you a price today, beat any competing quote, and turn it around fast when you're in a bind. Email me directly — no ticket queue, no auto-reply.</p>
           <div class="cta-row">
             <a href="mailto:bradley@gift-hippo.com" class="btn btn-accent">Email bradley@gift-hippo.com</a>
@@ -46,7 +46,8 @@
           </div>
           <p class="hero-phone">Or call/text: <a href="tel:8086470628">(808) 647-0628</a></p>
         </div>
-        <div class="hero-mascot">
+        <div class="hero-mascot" id="hero-mascot">
+          <div class="hippo-glow"></div>
           <div class="hippo-wrapper" id="hippo-wrapper">
             <div class="hippo-bubble" id="hippo-bubble">
               <p>Email me today — I'll find the right gift at your budget.</p>
@@ -62,7 +63,7 @@
   <!-- Browse -->
   <section id="browse" class="section">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2>Browse what I source</h2>
         <p class="sub">Real orders, real brands. Send me a logo and I'll tell you what's possible.</p>
       </div>
@@ -90,17 +91,17 @@
   <!-- Why Gift Hippo — merged with operational pillars -->
   <section class="section alt-bg">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2>Why Gift Hippo?</h2>
         <p class="sub">What separates a real person from a storefront.</p>
       </div>
-      <div class="why-grid">
-        <div class="why-card">
+      <div class="why-grid stagger">
+        <div class="why-card why-feat">
           <div class="why-icon">👤</div>
           <div class="why-title">You're dealing with a real person</div>
           <div class="why-text">Not a storefront, not a rep rotating through a ticket queue. I source your order, approve the proof, and ship it myself. If something needs your attention, you hear from me directly.</div>
         </div>
-        <div class="why-card">
+        <div class="why-card why-feat">
           <div class="why-icon">🤝</div>
           <div class="why-title">Industry relationships = lowest cost</div>
           <div class="why-text">Years of direct relationships with brands and suppliers mean I can access inventory at prices most resellers can't touch. I'll beat any competing quote.</div>
@@ -140,28 +141,54 @@
           <a href="https://share.google/pCk6TLFYUDuigLmpX" target="_blank" rel="noopener" class="source">on Google</a>
         </div>
       </div>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-text">"Working with Gift Hippo exceeded my expectations. Communication was frequent and fast, they worked with me on my artwork, completed the job ahead of schedule, and delivered a high quality customized product. I would recommend Gift Hippo to anyone who needed customized products for corporate gifts or merchandise."</p>
-          <div class="review-meta">
-            <div class="review-name">Amanda R.</div>
-            <div class="review-detail">65 laser-etched BruMate products</div>
+      <div class="reviews-carousel">
+        <div class="reviews-track">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Working with Gift Hippo exceeded my expectations. Communication was frequent and fast, they worked with me on my artwork, completed the job ahead of schedule, and delivered a high quality customized product. I would recommend Gift Hippo to anyone who needed customized products for corporate gifts or merchandise."</p>
+            <div class="review-meta">
+              <div class="review-name">Amanda R.</div>
+              <div class="review-detail">65 laser-etched BruMate products</div>
+            </div>
           </div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-text">"Very professional, great quality, clean packaging and most importantly 'on time'! I didn't have any difficulty with this company. Will definitely come to them again."</p>
-          <div class="review-meta">
-            <div class="review-name">Annie A.</div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Very professional, great quality, clean packaging and most importantly 'on time'! I didn't have any difficulty with this company. Will definitely come to them again."</p>
+            <div class="review-meta">
+              <div class="review-name">Annie A.</div>
+            </div>
           </div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-text">"I needed a lot of cups made on an extremely short notice and they helped me out and got it done. The cups were perfect and a huge hit."</p>
-          <div class="review-meta">
-            <div class="review-name">Samantha R.</div>
-            <div class="review-detail">Rush order, short notice</div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"I needed a lot of cups made on an extremely short notice and they helped me out and got it done. The cups were perfect and a huge hit."</p>
+            <div class="review-meta">
+              <div class="review-name">Samantha R.</div>
+              <div class="review-detail">Rush order, short notice</div>
+            </div>
+          </div>
+          <!-- Duplicates for seamless loop -->
+          <div class="review-card" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Working with Gift Hippo exceeded my expectations. Communication was frequent and fast, they worked with me on my artwork, completed the job ahead of schedule, and delivered a high quality customized product. I would recommend Gift Hippo to anyone who needed customized products for corporate gifts or merchandise."</p>
+            <div class="review-meta">
+              <div class="review-name">Amanda R.</div>
+              <div class="review-detail">65 laser-etched BruMate products</div>
+            </div>
+          </div>
+          <div class="review-card" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Very professional, great quality, clean packaging and most importantly 'on time'! I didn't have any difficulty with this company. Will definitely come to them again."</p>
+            <div class="review-meta">
+              <div class="review-name">Annie A.</div>
+            </div>
+          </div>
+          <div class="review-card" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"I needed a lot of cups made on an extremely short notice and they helped me out and got it done. The cups were perfect and a huge hit."</p>
+            <div class="review-meta">
+              <div class="review-name">Samantha R.</div>
+              <div class="review-detail">Rush order, short notice</div>
+            </div>
           </div>
         </div>
       </div>
@@ -198,7 +225,7 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="section contact-section">
+  <section id="contact" class="section contact-section alt-bg">
     <div class="wrap">
       <div class="section-head centered">
         <h2>Get a quote</h2>
@@ -233,6 +260,10 @@
       </form>
     </div>
   </section>
+
+  <div class="contact-hippo" aria-hidden="true">
+    <img src="hippo-mascot-big.png" alt="">
+  </div>
 
 </main>
 
@@ -365,6 +396,91 @@ document.getElementById('quote-form').addEventListener('submit', function (e) {
     });
   });
 });
+</script>
+
+<!-- ── Interactive redesign JS ── -->
+<script>
+(function () {
+
+  /* ── Nav compact on scroll ── */
+  var nav = document.querySelector('.site-header');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('nav-scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ── IntersectionObserver: .reveal ── */
+  var revealIO = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        revealIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
+
+  /* ── IntersectionObserver: .stagger ── */
+  var staggerIO = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        staggerIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.stagger').forEach(function (el) { staggerIO.observe(el); });
+
+  /* ── Hero mascot parallax ── */
+  var heroMascot = document.getElementById('hero-mascot');
+  var ticking = false;
+  if (heroMascot) {
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(function () {
+          var y = window.scrollY;
+          if (y < window.innerHeight * 1.2) {
+            heroMascot.style.transform = 'translateY(' + (y * -0.22) + 'px)';
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  /* ── 3D tilt on browse cards ── */
+  document.querySelectorAll('.browse-card').forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      var rect = card.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width  - 0.5;
+      var y = (e.clientY - rect.top)  / rect.height - 0.5;
+      card.style.transition = 'box-shadow 0.2s, border-color 0.2s';
+      card.style.transform  = 'perspective(700px) rotateY(' + (x * 14) + 'deg) rotateX(' + (-y * 14) + 'deg) translateY(-4px) scale(1.01)';
+    });
+    card.addEventListener('mouseleave', function () {
+      card.style.transition = 'transform 0.45s cubic-bezier(0.22,1,0.36,1), box-shadow 0.2s, border-color 0.2s';
+      card.style.transform  = '';
+    });
+  });
+
+  /* ── How it works: line draw + step pop ── */
+  var howSection = document.querySelector('#how-it-works');
+  var howGrid    = document.querySelector('.how-grid');
+  var howSteps   = document.querySelectorAll('.how-step');
+  if (howSection && howGrid) {
+    new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        howGrid.classList.add('line-drawn');
+        howSteps.forEach(function (step, i) {
+          setTimeout(function () {
+            step.classList.add('step-visible');
+          }, 250 + i * 180);
+        });
+      }
+    }, { threshold: 0.25 }).observe(howSection);
+  }
+
+}());
 </script>
 
 </body>
