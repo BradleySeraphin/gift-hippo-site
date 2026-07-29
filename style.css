@@ -785,17 +785,10 @@ img { display: block; max-width: 100%; }
 /* ── Footer ──────────────────────────────────────── */
 .site-footer {
   border-top: 1px solid var(--border);
-  padding: 0 0 22px;
+  padding: 28px 0;
   background: rgba(22,17,31,0.98);
   position: relative;
   z-index: 1;
-}
-.footer-seal {
-  display: flex;
-  justify-content: center;
-  padding: 18px 0 16px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 18px;
 }
 .footer-inner {
   display: flex;
