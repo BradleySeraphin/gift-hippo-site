@@ -270,7 +270,17 @@
 <footer class="site-footer">
   <div class="footer-seal">
     <div class="footer-mark">
-      <img src="gift-hippo-original-logo.png" alt="Gift Hippo original mark">
+      <img src="gift-hippo-original-logo.png" alt="Gift Hippo">
+      <!-- Dark overlay fills all the white padding; rounded-rect punches through to reveal logo -->
+      <svg class="footer-mark-mask" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <mask id="fm">
+            <rect width="500" height="500" fill="white"/>
+            <rect x="72" y="52" width="356" height="396" rx="60" fill="black"/>
+          </mask>
+        </defs>
+        <rect width="500" height="500" fill="#16111f" mask="url(#fm)"/>
+      </svg>
     </div>
   </div>
   <div class="wrap footer-inner">
