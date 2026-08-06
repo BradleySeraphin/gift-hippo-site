@@ -440,7 +440,7 @@ img { display: block; max-width: 100%; }
 }
 .section-head.centered .sub { margin: 0 auto; }
 
-/* ── Why Gift Hippo — bento ──────────────────────── */
+/* ── Why Gift Hippo - bento ──────────────────────── */
 .why-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
