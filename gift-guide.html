@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holiday Gift Guide: 13 Branded Gifts | Gift Hippo</title>
+<meta name="description" content="13 branded gifts worth a look, all $24-$61, on sale through September. Get your logo on any of them today through Gift Hippo.">
+<link rel="icon" type="image/png" href="hippo-head.png">
+<link rel="apple-touch-icon" href="hippo-head.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Guide hero */
+  .guide-hero {
+    padding: 148px 0 88px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    z-index: 1;
+  }
+  .guide-hero::before {
+    content: '';
+    position: absolute;
+    top: -10%; left: 50%;
+    transform: translateX(-50%);
+    width: 72vw; height: 60vw;
+    max-width: 900px;
+    background: radial-gradient(circle, rgba(208,117,96,0.13) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .guide-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--coral);
+    background: rgba(208,117,96,0.12);
+    border: 1px solid rgba(208,117,96,0.28);
+    border-radius: var(--radius-pill);
+    padding: 5px 18px;
+    margin-bottom: 22px;
+  }
+  .guide-hero h1 {
+    font-size: clamp(38px, 6vw, 74px);
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+  }
+  .guide-hero .sub {
+    margin: 0 auto 36px;
+    font-size: clamp(15px, 1.6vw, 18px);
+    max-width: 500px;
+  }
+  .guide-hero-cta {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Product grid */
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--card-gap);
+  }
+
+  /* Product card */
+  .guide-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s var(--ease-out), box-shadow 0.3s, border-color 0.3s;
+    position: relative;
+  }
+  .guide-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 52px rgba(0,0,0,0.35);
+    border-color: rgba(208,117,96,0.28);
+  }
+  .guide-card-img-wrap {
+    overflow: hidden;
+    position: relative;
+  }
+  .guide-card-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    background: #1e1730;
+    transition: transform 0.5s var(--ease-out);
+  }
+  .guide-card:hover .guide-card-img { transform: scale(1.04); }
+  .guide-card-body {
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+  }
+  .guide-card-price {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--coral);
+    background: rgba(208,117,96,0.12);
+    border: 1px solid rgba(208,117,96,0.22);
+    border-radius: var(--radius-pill);
+    padding: 3px 12px;
+    display: inline-block;
+    letter-spacing: 0.02em;
+    width: fit-content;
+  }
+  .guide-card-name {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--cream);
+    line-height: 1.3;
+    margin-top: 4px;
+  }
+  .guide-card-desc {
+    font-size: 13.5px;
+    color: var(--cream-mid);
+    line-height: 1.7;
+    flex: 1;
+  }
+  .guide-card-link {
+    font-size: 12px;
+    color: var(--cream-dim);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s;
+    margin-top: 6px;
+    display: inline-block;
+  }
+  .guide-card-link:hover { color: var(--cream-mid); }
+
+  /* Sale badge */
+  .sale-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: var(--gold);
+    color: #16111F;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+  }
+
+  /* Premium section cards */
+  .guide-premium-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--card-gap);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .guide-premium-card {
+    background: var(--surface-hi);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+    position: relative;
+  }
+  .guide-premium-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 28px 60px rgba(0,0,0,0.4);
+  }
+  .guide-premium-card .guide-card-img {
+    aspect-ratio: 4 / 3;
+  }
+  .guide-premium-label {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: rgba(22,17,31,0.82);
+    border: 1px solid var(--border-light);
+    color: var(--cream-mid);
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    backdrop-filter: blur(8px);
+  }
+
+  /* Closing CTA */
+  .guide-cta-box {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .guide-cta-box h2 { margin-bottom: 14px; }
+  .guide-cta-box .sub { margin: 0 auto 32px; }
+  .guide-cta-row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .guide-cta-fine {
+    font-size: 13px;
+    color: var(--cream-dim);
+  }
+  .guide-cta-fine a {
+    color: var(--cream-mid);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+  }
+  .guide-cta-fine a:hover { color: var(--cream); }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .guide-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .guide-hero { padding: 120px 0 60px; }
+    .guide-premium-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 460px) {
+    .guide-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="particles" style="position:fixed;inset:0;z-index:-1;pointer-events:none;background:transparent;"></canvas>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="/" class="wordmark">
+      <img src="hippo-head.png" alt="" class="wordmark-icon" aria-hidden="true">
+      Gift Hippo
+    </a>
+    <nav>
+      <a href="/#browse">Browse</a>
+      <a href="/#how-it-works">How it works</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <a href="/#contact" class="btn btn-accent">Get a quote</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="guide-hero">
+    <div class="wrap">
+      <p class="guide-eyebrow">Holiday Gift Guide</p>
+      <h1>13 gifts worth a look.</h1>
+      <p class="sub">All $24-$61, on sale through September. Solve Christmas now, be the calm one in December.</p>
+      <div class="guide-hero-cta">
+        <a href="/#contact" class="btn btn-accent">Get a price today</a>
+        <a href="mailto:bradley@gift-hippo.com" class="btn btn-outline">Email bradley@gift-hippo.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 items under $50 -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>11 gifts under $50</h2>
+        <p class="sub">All available with logo imprint. Send me a logo and a rough idea, and I'll tell you what's possible.</p>
+      </div>
+      <div class="guide-grid stagger">
+
+        <div class="guide-card">
+          <div class="guide-card-img-wrap">
+            <img src="guide-bru-uncorkd.jpg" alt="BruMate Uncorkd 14oz Wine Tumbler" class="guide-card-img" loading="lazy">
+          </div>
+          <div class="guide-card-body">
+            <span class="guide-card-price">$24</span>
+            <div class="guide-card-name">BruMate Uncorkd 14oz Wine Tumbler</div>
+            <div class="guide-card-desc">Keeps wine cold for 24 hours with a leak-proof lid. The laser-engraved logo lives on stainless, not a sticker that peels off in the dishwasher.</div>
+            <a href="https://hirschpromo.com/usa/view-all-products/brumate-uncorkd-14oz-wine-tumbler" target="_blank" rel="noopener" class="guide-card-link">Browse product details</a>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-img-wrap">
+            <img src="guide-rtic-pint.jpg" alt="RTIC Happy Hour Pint Tumbler" class="guide-card-img" loading="lazy">
+          </div>
+          <div class="guide-card-body">
+            <span class="guide-card-price">$26</span>
+            <div class="guide-card-name">RTIC Happy Hour Pint Tumbler</div>
+            <div class="guide-card-desc">Double-wall insulated pint that works hot or cold. Feels substantial in hand. Clean lines, no gimmicks, holds up in a gift bag or a box.</div>
+            <a href="https://hirschpromo.com/usa/view-all-products/rtic-happy-hour-pint-tumbler?pov_id=4693" target="_blank" rel="noopener" class="guide-card-link">Browse product details</a>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-img-wrap">
+            <img src="guide-crosley-speaker.jpg" alt="Crosley Bluetooth Speaker" class="guide-card-img" loading="lazy">
+          </div>
+          <div class="guide-card-body">
+            <span class="guide-card-price">$30</span>
+            <div class="guide-card-name">Crosley Bluetooth Speaker</div>
+            <div class="guide-card-desc">Retro cabinet look with modern Bluetooth. Stands out on a desk or shelf because it doesn't look like every other cylinder speaker on the market.</div>
+            <a href="https://hirschpromo.com/usa/view-all-products/crosley-bluetooth-speaker" target="_blank" rel="noopener" class="guide-card-link">Browse product details</a>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-img-wrap">
+            <img src="guide-patriot-cooler9.jpg" alt="Patriot Venture Cooler 9" class="guide-card-img" loading="lazy">
+          </div>
+          <div class="guide-card-body">
+            <span class="guide-card-price">$30</span>
+            <div class="guide-card-name">Patriot Venture Cooler 9</div>
+            <div class="guide-card-desc">9-can personal hard cooler. Good for tailgates, outdoor events, and client appreciation gifts. Logo on the lid, stays visible wherever it goes.</div>
+            <a href="https://hirschpromo.com/usa/view-all-products/patriot-venture-cooler-9" target="_blank" rel="noopener" class="guide-card-link">Browse product details</a>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-img-wrap">
+            <img src="guide-bodum-bistro.jpg" alt="Bodum Bistro Set: French Press and outdoor glasses" class="guide-card-img" loading="lazy">
+          </div>
+          <div class="guide-card-body">
+            <span class="guide-card-price">$40</span>
+            <div class="guide-card-name">Bodum Bistro Set</div>
+            <div class="guide-card-desc">French press (34oz) plus two outdoor glass tumblers. Coffee people love this one. Feels like a curated gift, not a random branded item.</div>
+            <a href="https://hirschpromo.com/usa/view-all-products/bodum-bistro-set-french-press-34oz-and-2-pcs-pavina-outdoor-8oz" target="_blank" rel="noopener" class="guide-card-link">Browse product details</a>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-img-wrap">
+            <img src="guide-bru-era-flip.jpg" alt="BruMate Era Flip 30 tumbler" class="guide-card-img" loading="lazy">
+          </div>
+          <div class="guide-card-body">
+            <span class="guide-card-price">$42</span>
+            <div class="guide-card-name">BruMate Era Flip 30</div>
+            <div class="guide-card-desc">BruMate's new flagship 30oz tumbler with a flip lid. More polished than the competition at this price. One of the better-looking tumblers in the category right now.</div>
+            <a href="https://hirschpromo.com/usa/drinkware/brumate-era-flip-30" target="_blank" rel="noopener" class="guide-card-link">Browse product details</a>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-img-wrap">
+            <img src="guide-serene-diffuser.jpg" alt="Serene House Astro White 90 Glass Ultrasonic Diffuser" class="guide-card-img" loading="lazy">
+          </div>
+          <div class="guide-card-body">
+            <span class="guide-card-price">$42</span>
+            <div class="guide-card-name">Serene House Astro 90 Diffuser</div>
+            <div class="guide-card-desc">Glass ultrasonic aroma diffuser. Quiet, elegant, works in any home office. Unusual enough to be memorable, practical enough to actually get used.</div>
+            <a href="https://hirschpromo.com/usa/view-all-products/serene-house-astro-white-90-glass-ultrasonic-aroma-diffuser" target="_blank" rel="noopener" class="guide-card-link">Browse product details</a>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-img-wrap">
+            <img src="guide-hypergear-fitx2.jpg" alt="HyperGear Fit X2 Smartwatch Fitness Tracker" class="guide-card-img" loading="lazy">
+          </div>
+          <div class="guide-card-body">
+            <span class="guide-card-price">$42</span>
+            <div class="guide-card-name">HyperGear Fit X2 Smartwatch</div>
+            <div class="guide-card-desc">Fitness tracker that doesn't look or feel cheap. Good for wellness campaigns, employee appreciation, or any audience that likes staying active.</div>
+            <a href="https://hirschpromo.com/usa/view-all-products/hypergear-fit-x2-smartwatch-fitness-tracker" target="_blank" rel="noopener" class="guide-card-link">Browse product details</a>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-img-wrap">
+            <img src="guide-patriot-froz-tote.jpg" alt="Patriot Froz Tote Cooler" class="guide-card-img" loading="lazy">
+          </div>
+          <div class="guide-card-body">
+            <span class="guide-card-price">$46</span>
+            <div class="guide-card-name">Patriot Froz Tote Cooler</div>
+            <div class="guide-card-desc">Insulated tote with shoulder strap, holds 24 cans. Works for the beach, the farmers market, or just commuting with lunch. Logo stays front and center.</div>
+            <a href="https://hirschpromo.com/usa/view-all-products/patriot-froz-tote-cooler" target="_blank" rel="noopener" class="guide-card-link">Browse product details</a>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-img-wrap">
+            <img src="guide-caselogic-backpack.jpg" alt="Case Logic Key Backpack 20L" class="guide-card-img" loading="lazy">
+          </div>
+          <div class="guide-card-body">
+            <span class="guide-card-price">$47</span>
+            <div class="guide-card-name">Case Logic Key Backpack 20L</div>
+            <div class="guide-card-desc">Clean, premium-looking 20L backpack. Doesn't scream "corporate swag." Works for the commute, the gym, or weekend travel. People actually use these.</div>
+            <a href="https://hirschpromo.com/usa/view-all-products/case-logic-key-backpack-20l" target="_blank" rel="noopener" class="guide-card-link">Browse product details</a>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-card-img-wrap">
+            <img src="guide-jbl-go4.jpg" alt="JBL Go 4 Bluetooth Portable Speaker" class="guide-card-img" loading="lazy">
+            <span class="sale-badge">Super sale</span>
+          </div>
+          <div class="guide-card-body">
+            <span class="guide-card-price">$50</span>
+            <div class="guide-card-name">JBL Go 4 Bluetooth Speaker</div>
+            <div class="guide-card-desc">The speaker that makes people say "wait, that's only $50?" IP67 waterproof, USB-C, 7-hour battery. Currently on super sale. The JBL name does a lot of the work.</div>
+            <a href="https://hirschpromo.com/usa/jbl-go-4-bluetooth-portable-speaker" target="_blank" rel="noopener" class="guide-card-link">Browse product details</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Special mention: over $50 -->
+  <section class="section alt-bg">
+    <div class="wrap">
+      <div class="section-head centered reveal">
+        <h2>A little more room in the budget?</h2>
+        <p class="sub">Two JBL pieces worth the extra spend. Same order process, same personal service.</p>
+      </div>
+      <div class="guide-premium-grid stagger">
+
+        <div class="guide-premium-card">
+          <div class="guide-card-img-wrap">
+            <img src="guide-jbl-go5.jpg" alt="JBL Go 5 Speaker" class="guide-card-img" loading="lazy">
+            <span class="guide-premium-label">Special mention</span>
+          </div>
+          <div class="guide-card-body">
+            <span class="guide-card-price">$60</span>
+            <div class="guide-card-name">JBL Go 5</div>
+            <div class="guide-card-desc">One tier up from the Go 4. Better bass, same grab-and-go size. If the Go 4 is the gift that surprises, the Go 5 is the one that impresses.</div>
+            <a href="https://hirschpromo.com/usa/jbl-go-5-speaker" target="_blank" rel="noopener" class="guide-card-link">Browse product details</a>
+          </div>
+        </div>
+
+        <div class="guide-premium-card">
+          <div class="guide-card-img-wrap">
+            <img src="guide-jbl-tune530.jpg" alt="JBL Tune 530 Headphones" class="guide-card-img" loading="lazy">
+            <span class="guide-premium-label">Special mention</span>
+          </div>
+          <div class="guide-card-body">
+            <span class="guide-card-price">$61</span>
+            <div class="guide-card-name">JBL Tune 530 Headphones</div>
+            <div class="guide-card-desc">Over-ear foldable with 57-hour battery. JBL at this price is hard to beat. A recognizable name on the ear cup carries real weight as a branded gift.</div>
+            <a href="https://hirschpromo.com/usa/jbl-tune-530-headphones" target="_blank" rel="noopener" class="guide-card-link">Browse product details</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="wrap">
+      <div class="guide-cta-box reveal">
+        <h2>Ready to put your logo on one of these?</h2>
+        <p class="sub">Send me a logo and a rough idea, and I'll tell you what's possible and get you a price today. I respond personally to every request, usually within a few hours.</p>
+        <div class="guide-cta-row">
+          <a href="/#contact" class="btn btn-accent">Fill out a quote form</a>
+          <a href="mailto:bradley@gift-hippo.com" class="btn btn-outline">Email bradley@gift-hippo.com</a>
+        </div>
+        <p class="guide-cta-fine">Or call/text: <a href="tel:8086470628">(808) 647-0628</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>Gift Hippo · San Diego, CA</span>
+    <span><a href="mailto:bradley@gift-hippo.com">bradley@gift-hippo.com</a> · <a href="tel:8086470628">(808) 647-0628</a></span>
+  </div>
+</footer>
+
+<!-- Particle field -->
+<script>
+(function () {
+  var canvas = document.getElementById('particles');
+  var ctx    = canvas.getContext('2d');
+  var ICONS  = ['🎁','🎁','⛳','⛳','🏆','🏅','☕','☕','🍺','🍺','🥤','🥤','🧋','🍵','🫗'];
+  var pts    = [];
+  var N      = 26;
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  function init() {
+    resize(); pts = [];
+    for (var i = 0; i < N; i++) {
+      pts.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+        vx: (Math.random()-.5)*.20, vy: (Math.random()-.5)*.20,
+        icon: ICONS[Math.floor(Math.random()*ICONS.length)],
+        size: Math.random()*10+14, a: Math.random()*.20+.08,
+        rot: Math.random()*Math.PI*2, vrot: (Math.random()-.5)*.006 });
+    }
+  }
+  function tick() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for (var k=0; k<pts.length; k++) {
+      var p=pts[k];
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+      ctx.globalAlpha=p.a; ctx.font=p.size+'px serif';
+      ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillText(p.icon,0,0); ctx.restore();
+      p.x+=p.vx; p.y+=p.vy; p.rot+=p.vrot;
+      var pad=32;
+      if(p.x<-pad) p.x=canvas.width+pad; else if(p.x>canvas.width+pad) p.x=-pad;
+      if(p.y<-pad) p.y=canvas.height+pad; else if(p.y>canvas.height+pad) p.y=-pad;
+    }
+    requestAnimationFrame(tick);
+  }
+  init(); tick();
+  window.addEventListener('resize',init);
+}());
+</script>
+
+<!-- Scroll animations -->
+<script>
+(function () {
+  var nav = document.querySelector('.site-header');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('nav-scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  var revealIO = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); revealIO.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
+
+  var staggerIO = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); staggerIO.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.stagger').forEach(function (el) { staggerIO.observe(el); });
+}());
+</script>
+
+</body>
+</html>
